@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/contactStyles.css">
+        <script src= "js/angular.min.js"></script>
+        <script src= "js/contact.js"></script>
+    </head>
+    <!--declare ng-app directive, and set ng-controller directive!-->
+    <body ng-app="" ng-controller="contactController">
+
+        <!--navigation starts here!-->
+        <ul class="nav nav-tabs">
+          <li role="presentation" class="active"><a href="#">Contact List Example</a></li>
+          <li role="presentation"><a href ng-click="goAdd = !goAdd">Add Contact</a></li>
+        </ul>
+        <!--navigation ends here!-->
+        <!--add a contact form starts here!-->
+         <form ng-show="goAdd" ng-submit="contactAdd()" class="col-lg-4 col-lg-offset-4">
+            <input type="text" ng-model="nameInput" class="inputStyle "placeholder="Name"><br />
+            <input type="tel" ng-model="cellInput" class="inputStyle "placeholder="Phone Number"><br />
+              <input type="email" ng-model="emailInput" class="inputStyle  "placeholder="Email"><br />
+            <input class="button col-lg-2 btn-primary" type="submit" value="Add">
+        </form><br />
+        <!--add a contact form ends here!-->
+        <hr />
+        <!--Search area starts here!-->
+       <center><input type="text" class="searchArea col-lg-4 col-lg-offset-4" ng-model="searchText" placeholder="Search Contact List"/><br />
+           </center>
+        <!--Search area ends here!-->
+
+       <!--Set the div width to the width of the page!-->
+            <div class="container col-lg-6 col-lg-offset-3">
+                <div class="row">
+                    <div class="span6 well">
+                        <!--Use ng-repeat directive to access the contactList array, and display each object in the array!-->
+                        <div class="row contactContainer" ng-repeat="cont in contactList | filter:searchText">
+                            <!--To keep it simple I just hard coded an image, so the same img will be used for each contact!-->
+                            <img src="http://critterapp.pagodabox.com/img/user.jpg" alt="" class="thumbnail col-lg-2">
+                            <div class="col-lg-4 contactInfo">
+                                <!--Use the ng-bind directive to access the name, cell, and email fields in the contactList array!-->
+                                <p><span class="textStyle btn-primary" ng-bind="cont.name"></span></p>
+                                <p><span class="textStyle btn-success" ng-bind="cont.cell"></span></p>
+                                <p><span class="textStyle btn-danger" ng-bind="cont.email"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+   
+  </body>
+</html>
