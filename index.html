@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/contactStyles.css">
         <script src= "js/angular.min.js"></script>
         <script src= "js/contact.js"></script>
+        
     </head>
     <!--declare ng-app directive, and set ng-controller directive!-->
     <body ng-app="" ng-controller="contactController">
@@ -15,6 +16,7 @@
           <li role="presentation"><a href ng-click="goAdd = !goAdd">Add Contact</a></li>
         </ul>
         <!--navigation ends here!-->
+
         <!--add a contact form starts here!-->
          <form ng-show="goAdd" ng-submit="contactAdd()" class="col-lg-4 col-lg-offset-4">
             <input type="text" ng-model="nameInput" class="inputStyle "placeholder="Name"><br />
@@ -24,12 +26,13 @@
         </form><br />
         <!--add a contact form ends here!-->
         <hr />
+
         <!--Search area starts here!-->
        <center><input type="text" class="searchArea col-lg-4 col-lg-offset-4" ng-model="searchText" placeholder="Search Contact List"/><br />
-           </center>
+       </center>
         <!--Search area ends here!-->
 
-       <!--Set the div width to the width of the page!-->
+       <!--Set the div width to the width of the page & this is where we will display the contact list!-->
             <div class="container col-lg-6 col-lg-offset-3">
                 <div class="row">
                     <div class="span6 well">
